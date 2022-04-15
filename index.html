@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quincy Action Figure Calculator</title>
+    <link rel="icon" href="./resource/RareQuincyActionFigureSquare.webp">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script type="module" defer src="./src/main.js"></script>
+    
+</head>
+<body>
+
+    <div id="app">
+
+        <div id="images">
+            <image id="portrait" src="./resource/GeraldoPortraitLvl3.webp">
+                <!--
+                    <image id="figure" src="./resource/RareQuincyActionFigure.webp"></image>
+                -->
+            </image>
+        </div>
+
+        <div id="calculator">
+
+            <div class="title">
+                Quincy Action
+                <br />
+                Figure Calculator
+            </div>
+
+            Difficulty:
+            <select id="inputDifficulty">
+                <option>Easy</option>
+                <option selected>Medium</option>
+                <option>Hard</option>
+                <option>Impoppable</option>
+            </select>
+
+            Rounds:
+            <input id="inputRounds" type="number" min="1" max="1000" multiple="1" value="40" placeholder="Rounds">
+
+            <div>
+                Sell: 
+                <input id="inputSell" type="checkbox">
+            </div>
+
+            <div id="output">UNKNOWN</div>
+
+            <div class="subText">
+                *Values may be off by at most 1%
+                <br />
+                *Selling doesn't account for base figure cost.
+            </div>
+
+        </div>
+
+    </div>
+
+    
+</body>
+</html>

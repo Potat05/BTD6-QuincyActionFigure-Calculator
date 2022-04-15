@@ -1,0 +1,87 @@
+
+body {
+    display: flex;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    /* Hero select background image */
+    background-image: url("../resource/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Garaldo background color */
+    backdrop-filter: hue-rotate(60deg) saturate(40%);
+
+    overflow-x: hidden;
+}
+
+#app {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex: auto;
+
+    width: 100vw;
+    height: auto;
+}
+
+#images {
+    display: flex;
+    flex-direction: row-reverse;
+
+    height: min(80vh, 100vw);
+}
+
+#portrait {
+    height: 100%;
+}
+
+#figure {
+    position: fixed;
+
+    height: 20%;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+
+    padding: 5%;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 20px black;
+    border-radius: 10px;
+
+    color: white;
+}
+
+.title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+#calculator > :not(:last-child) {
+    margin-bottom: 20%;
+}
+
+#output {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+
+    color: #1fa01f;
+}
+
+.subText {
+    font-size: 0.8rem;
+    
+    text-align: center;
+}
