@@ -7,7 +7,7 @@ body {
     margin: 0;
 
     /* Hero select background image */
-    background-image: url("../resource/background.webp");
+    background-image: url("../resource/Background.webp");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
