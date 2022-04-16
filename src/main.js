@@ -15,7 +15,14 @@ const outputText = calculator.querySelector('#output');
 function updateCalculator() {
 
     const difficulty = Difficulty.convertDifficulty(inputDifficulty.value);
+
+    // SET MIN ROUND
+    const startRound = Difficulty.getStartRound(difficulty);
+    inputRounds.min = startRound;
+    inputRounds.value = Math.max(inputRounds.value, startRound);
+
     const rounds = parseInt(inputRounds.value);
+    
     const doSell = inputSell.checked;
 
     const output = QuincyActionFigure.calcActionFigure(rounds, {
