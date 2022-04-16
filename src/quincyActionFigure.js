@@ -35,17 +35,17 @@ export class QuincyActionFigure {
         let val = baseCost;
 
         const muls = [
-            { percentage: 110, roundCap: 30 },
-            { percentage: 105, roundCap: 80 },
+            { percentage: 110, roundCap: 31 },
+            { percentage: 105, roundCap: 81 },
             { percentage: 102, roundCap: Infinity }
         ];
 
         // For some reason easy is different?
         if(difficulty != Difficulty.easy) {
             // This starts to break at round 150+ (Good enough.)
-            val *=     ((muls[0].percentage / 100) ** Math.min(rounds-1, muls[0].roundCap))
-             * Math.max((muls[1].percentage / 100) ** (Math.min(rounds-1, muls[1].roundCap) - muls[0].roundCap), 1)
-             * Math.max((muls[2].percentage / 100) ** (Math.min(rounds-1, muls[2].roundCap) - muls[1].roundCap), 1);
+            val *=     ((muls[0].percentage / 100) ** (Math.min(rounds, muls[0].roundCap) - startRound))
+             * Math.max((muls[1].percentage / 100) ** (Math.min(rounds, muls[1].roundCap) - muls[0].roundCap), 1)
+             * Math.max((muls[2].percentage / 100) ** (Math.min(rounds, muls[2].roundCap) - muls[1].roundCap), 1);
         } else {
             for(let i=startRound; i < rounds; i++) {
     
