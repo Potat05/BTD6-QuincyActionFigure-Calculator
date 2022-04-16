@@ -46,10 +46,10 @@ export class QuincyActionFigure {
                 val *= 1.02;
             }
 
-            // ?!???!
-            if(i > startRound+5) val -= 0.1;
-
-            val = Math.round(val);
+            if(difficulty == Difficulty.easy) {
+                if(i > startRound+5) val -= 0.1;
+                val = Math.round(val);
+            }
             
         }
 
