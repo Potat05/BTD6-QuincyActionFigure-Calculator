@@ -34,23 +34,34 @@ export class QuincyActionFigure {
 
         let val = baseCost;
 
-        // I've tuned this to the best I can to make it most accurate (+~300 at round 100 on medium)
-        // Maybe I can do better but this is annoying as heck to make better
-        for(let i=startRound; i < rounds; i++) {
-    
-            if(i < 31) {
-                val *= 1.1;
-            } else if(i < 81) {
-                val *= 1.05;
-            } else {
-                val *= 1.02;
-            }
+        const muls = [
+            { percentage: 110, roundCap: 30 },
+            { percentage: 105, roundCap: 80 },
+            { percentage: 102, roundCap: Infinity }
+        ];
 
-            if(difficulty == Difficulty.easy) {
-                if(i > startRound+5) val -= 0.1;
+        // For some reason easy is different?
+        if(difficulty != Difficulty.easy) {
+            // This starts to break at round 150+ (Good enough.)
+            val = val
+             * ((muls[0].percentage / 100) ** Math.min(rounds-1, muls[0].roundCap))
+             * ((muls[1].percentage / 100) ** (Math.min(rounds-1, muls[1].roundCap)-muls[0].roundCap))
+             * ((muls[2].percentage / 100) ** (Math.min(rounds-1, muls[2].roundCap)-muls[1].roundCap));
+        } else {
+            for(let i=startRound; i < rounds; i++) {
+    
+                if(i < 31) {
+                    val *= 1.1;
+                } else if(i < 81) {
+                    val *= 1.05;
+                } else {
+                    val *= 1.02;
+                }
+    
+                val -= 0.1;
                 val = Math.round(val);
+                
             }
-            
         }
 
         // Round to nearest 5, And add 10mil cap
