@@ -1,14 +1,4 @@
 
-/*
-
-    Quincy action figure calculator
-    
-    TODO:
-        Add base cost to selling.
-        Make estimate better.
-
-*/
-
 import { Difficulty } from "./difficulty.js";
 
 export class QuincyActionFigure {
@@ -26,8 +16,9 @@ export class QuincyActionFigure {
     }
 
     static sellPercent = 0.95;
+    static maxPrice = 10_100_100;
 
-    static calcActionFigure(rounds=20, { difficulty=Difficulty.medium, sell=false } = {}) {
+    static calcActionFigure(rounds=20, { difficulty=Difficulty.medium, sell=false, betterSellDeals=true } = {}) {
 
         const baseCost = QuincyActionFigure.getBasePriceForDifficulty(difficulty);
         const startRound = Difficulty.getStartRound(difficulty);
@@ -61,12 +52,13 @@ export class QuincyActionFigure {
             }
         }
 
-        // Round to nearest 5, And add 10mil cap
-        const final = v => Math.min(Math.round(Math.round(v) / 5) * 5, 10_000_000);
+        // Buying: Round to nearest 5, Add the max price cap
+        if(!sell) return Math.min(Math.round(Math.round(val) / 5) * 5, QuincyActionFigure.maxPrice);
 
-        if(!sell) return final(val);
-        return final(val * QuincyActionFigure.sellPercent);
-        
+        // Selling: Price - baseCost, Add the max price cap
+        const baseMul = 0.95 + (betterSellDeals ? 0.05 : 0.00);
+        return Math.min(Math.round(Math.round(val - baseCost) * QuincyActionFigure.sellPercent + baseCost * baseMul), QuincyActionFigure.maxPrice);
+         
     }
 
 }

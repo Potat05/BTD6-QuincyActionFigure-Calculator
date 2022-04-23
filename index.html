@@ -15,9 +15,10 @@
 
     <link rel="stylesheet" href="./css/style.css">
 
+    <script type="module" defer src="./src/customInputs/customInputs.js"></script>
+
     <script type="module" defer src="./src/main.js"></script>
     
-    <script type="module" defer src="./src/customInputs/customInputs.js"></script>
 
 </head>
 <body>
@@ -25,7 +26,7 @@
     <div id="app">
 
         <div id="images">
-            <image id="portrait" src="./resource/GeraldoPortraitLvl3.webp">
+            <image id="portrait" src="./resource/GeraldoPortraitLvl3.webp" title="Geraldo Portrait Level 3">
                 <!--
                     <image id="figure" src="./resource/RareQuincyActionFigure.webp"></image>
                 -->
@@ -34,13 +35,13 @@
 
         <div id="calculator">
 
-            <div class="title btd-text">
+            <div class="title btd-text" title="Quincy Action Figure Calculator">
                 Quincy Action
                 <br />
                 Figure Calculator
             </div>
 
-            <div class="option btd-text">
+            <div class="option btd-text" title="Game Difficulty">
                 Difficulty:
                 <div id="inputDifficulty" class="btd-input btd-text" data-custom-input="selection">
                     <div class="btd-option">Easy</div>
@@ -50,24 +51,30 @@
                 </div>
             </div>
 
-            <div class="option btd-text">
+            <div class="option btd-text" title="Round number">
                 Rounds:
                 <input id="inputRounds" class="btd-input btd-text" type="number" value="40" data-custom-input="integer">
             </div>
 
-            <div class="option btd-text">
-                Sell:
-                <input id="inputSell" class="btd-input btd-checkbox" type="checkbox">
+            <div class="verticalOption">
+                <div class="option btd-text" title="Wether or not to selling the figure">
+                    Sell:
+                    <input id="inputSell" class="btd-input btd-checkbox" type="checkbox">
+                </div>
+                <div id="divBetterSellDeals" class="option btd-text" title="Better Sell Deals monkey knowledge">
+                    BSD:
+                    <input id="inputBetterSellDeals" class="btd-input btd-checkbox" type="checkbox" checked>
+                </div>
             </div>
 
-            <div id="output" class="btd-text">UNKNOWN</div>
+            <div id="output" class="btd-text" title="UNKNOWN">UNKNOWN</div>
 
             <div class="subText">
                 *Values start to become inaccurate at round 150+
                 <br />
                 *Easy mode is very inaccurate
                 <br />
-                *Selling doesn't account for base figure cost.
+                *Selling may be off by $1
                 <br />
                 <a href="https://github.com/Potat05/BTD6-QuincyActionFigure-Calculator">GitHub Repository</a>
             </div>

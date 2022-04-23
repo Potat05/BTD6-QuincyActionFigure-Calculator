@@ -79,6 +79,10 @@ body {
     width: 100%;
 }
 
+.verticalOption {
+    width: 100%;
+}
+
 #output {
     color: #1fa01f;
     font-size: 4rem;
@@ -97,6 +101,12 @@ body {
     
     text-align: center;
 }
+
+.hidden {
+    display: none;
+}
+
+
 
 
 
