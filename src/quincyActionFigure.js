@@ -53,7 +53,7 @@ export class QuincyActionFigure {
 
         // Selling: Price - baseCost, Add the max price cap
         const baseMul = 0.95 + (betterSellDeals ? 0.05 : 0.00);
-        return Math.min(Math.round(Math.round(val - baseCost) * QuincyActionFigure.sellPercent + baseCost * baseMul), QuincyActionFigure.maxPrice);
+        return Math.min(Math.ceil((val - baseCost) * QuincyActionFigure.sellPercent + baseCost * baseMul), QuincyActionFigure.maxPrice);
          
     }
 
