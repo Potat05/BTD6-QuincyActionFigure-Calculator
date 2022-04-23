@@ -4,15 +4,11 @@ import { Difficulty } from "./difficulty.js";
 export class QuincyActionFigure {
     
     static getBasePriceForDifficulty(difficulty=Difficulty.medium) {
-        // Doesn't work. (Cost is 810 on hard and impoppable?)
-        // const baseCost = Difficulty.calcCost(
-        //     750,
-        //     difficulty,
-        //     { round: Math.floor, roundToNearest: 5 }
-        // );
-        return [
-            635, 750, 810, 810
-        ][difficulty];
+        return Difficulty.calcCost(
+            750,
+            difficulty,
+            { round: Math.floor, roundToNearest: 5 }
+        );
     }
 
     static sellPercent = 0.95;
