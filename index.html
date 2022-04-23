@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- BTD6 Font: https://fonts.google.com/specimen/Luckiest+Guy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,6 +17,8 @@
 
     <script type="module" defer src="./src/main.js"></script>
     
+    <script type="module" defer src="./src/customInputs/customInputs.js"></script>
+
 </head>
 <body>
 
@@ -26,29 +34,33 @@
 
         <div id="calculator">
 
-            <div class="title">
+            <div class="title btd-text">
                 Quincy Action
                 <br />
                 Figure Calculator
             </div>
 
-            Difficulty:
-            <select id="inputDifficulty">
-                <option>Easy</option>
-                <option selected>Medium</option>
-                <option>Hard</option>
-                <option>Impoppable</option>
-            </select>
-
-            Rounds:
-            <input id="inputRounds" type="number" max="500" step="1" value="1">
-
-            <div>
-                Sell: 
-                <input id="inputSell" type="checkbox">
+            <div class="option btd-text">
+                Difficulty:
+                <div id="inputDifficulty" class="btd-input btd-text" data-custom-input="selection">
+                    <div class="btd-option">Easy</div>
+                    <div class="btd-option" selected>Medium</div>
+                    <div class="btd-option">Hard</div>
+                    <div class="btd-option">Impoppable</div>
+                </div>
             </div>
 
-            <div id="output">UNKNOWN</div>
+            <div class="option btd-text">
+                Rounds:
+                <input id="inputRounds" class="btd-input btd-text" type="number" value="40" data-custom-input="integer">
+            </div>
+
+            <div class="option btd-text">
+                Sell:
+                <input id="inputSell" class="btd-input btd-checkbox" type="checkbox">
+            </div>
+
+            <div id="output" class="btd-text">UNKNOWN</div>
 
             <div class="subText">
                 *Values start to become inaccurate at round 150+

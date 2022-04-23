@@ -14,12 +14,12 @@ const outputText = calculator.querySelector('#output');
 
 function updateCalculator() {
 
+    // SET DIFFICULTY SELECTED
     const difficulty = Difficulty.convertDifficulty(inputDifficulty.value);
-
     // SET MIN ROUND
     const startRound = Difficulty.getStartRound(difficulty);
     inputRounds.min = startRound;
-    inputRounds.value = Math.max(inputRounds.value, startRound);
+    inputRounds.value = Math.floor(Math.max(inputRounds.value, startRound));
 
     const rounds = parseInt(inputRounds.value);
     
@@ -30,11 +30,7 @@ function updateCalculator() {
         sell: doSell
     });
 
-    const outputString = Math.floor(output).toLocaleString(undefined, {
-        style: 'currency',
-        currency: 'USD',
-        maximumFractionDigits: 0
-    });
+    const outputString = Math.floor(output).toLocaleString();
 
     outputText.innerText = outputString;
 }

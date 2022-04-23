@@ -1,0 +1,16 @@
+
+
+*[data-custom-input="selection"] {
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+*[data-custom-input="selection"] > *:nth-child(1) {
+    margin-top: 4px;
+}
+
+*[data-custom-input="selection"]:not(.expanded) > div {
+    display: none;
+}
+
