@@ -12,7 +12,7 @@ export class QuincyActionFigure {
     }
 
     static sellPercent = 0.95;
-    static maxPrice = 10_100_100;
+    static maxPrice = 10_000_000;
 
     static calcActionFigure(rounds=20, { difficulty=Difficulty.medium, sell=false, betterSellDeals=true } = {}) {
 
